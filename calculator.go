@@ -10,16 +10,16 @@ import (
 
 // Calculator bla
 type Calculator struct {
-	input     string
-	operation string
+	Input     string
+	Operation string
 }
 
 // Operate bla bla
 func (c Calculator) Operate() int {
-	cleanInput := strings.Split(c.input, c.operation)
+	cleanInput := strings.Split(c.Input, c.Operation)
 	number1 := parse(cleanInput[0])
 	number2 := parse(cleanInput[1])
-	switch c.operation {
+	switch c.Operation {
 	case "+":
 		return number1 + number2
 	case "-":
@@ -30,7 +30,7 @@ func (c Calculator) Operate() int {
 		return number1 / number2
 	default:
 		fmt.Println()
-		fmt.Print(c.operation, " Operation not supported.\n")
+		fmt.Print(c.Operation, " Operation not supported.\n")
 		return 0
 	}
 }
