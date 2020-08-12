@@ -8,12 +8,14 @@ import (
 	"strings"
 )
 
-type calculator struct {
+// Calculator bla
+type Calculator struct {
 	input     string
 	operation string
 }
 
-func (c calculator) operate() int {
+// Operate bla bla
+func (c Calculator) Operate() int {
 	cleanInput := strings.Split(c.input, c.operation)
 	number1 := parse(cleanInput[0])
 	number2 := parse(cleanInput[1])
@@ -38,7 +40,8 @@ func parse(input string) int {
 	return operator
 }
 
-func readInput() string {
+// ReadInput bla bla bla
+func ReadInput() string {
 	scanner := bufio.NewScanner(os.Stdin)
 	scanner.Scan()
 	operation := scanner.Text()
