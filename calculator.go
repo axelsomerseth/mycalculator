@@ -8,40 +8,39 @@ import (
 	"strings"
 )
 
-type calculadora struct {
-	entrada   string
-	operacion string
+type calculator struct {
+	input     string
+	operation string
 }
 
-func (c calculadora) operar() int {
-	// la variable c hace referencia a una instancia del tipo calculadora. Operar es un método de calculadora
-	entradaLimpia := strings.Split(c.entrada, c.operacion)
-	numero1 := parsear(entradaLimpia[0])
-	numero2 := parsear(entradaLimpia[1])
-	switch c.operacion {
+func (c calculator) operate() int {
+	cleanInput := strings.Split(c.input, c.operation)
+	number1 := parse(cleanInput[0])
+	number2 := parse(cleanInput[1])
+	switch c.operation {
 	case "+":
-		return numero1 + numero2
+		return number1 + number2
 	case "-":
-		return numero1 - numero2
+		return number1 - number2
 	case "*":
-		return numero1 * numero2
+		return number1 * number2
 	case "/":
-		return numero1 / numero2
+		return number1 / number2
 	default:
 		fmt.Println()
-		fmt.Print(c.operacion, " La operación no está soportada. ")
+		fmt.Print(c.operation, " Operation not supported.\n")
 		return 0
 	}
 }
 
-func parsear(entrada string) int {
-	operador, _ := strconv.Atoi(entrada)
-	return operador
+func parse(input string) int {
+	operator, _ := strconv.Atoi(input)
+	return operator
 }
 
-func leerEntrada() string {
+func readInput() string {
 	scanner := bufio.NewScanner(os.Stdin)
 	scanner.Scan()
-	operacion := scanner.Text()
-	return operacion
+	operation := scanner.Text()
+	return operation
 }
